@@ -9,7 +9,7 @@
 int main(void)
 {
 
-print("and that piece of art is useful\" - Dora Korpa, 2015-10-19\n");
+printf("and that piece of art is useful\" - Dora Korpa, 2015-10-19\n");
 
 return (1);
 }
