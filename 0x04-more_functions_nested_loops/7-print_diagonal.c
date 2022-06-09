@@ -1,26 +1,39 @@
 #include "main.h"
 
 /**
- * print_line - prints a straight line in the terminal
+ * print_diagonal - draws a diagonal line on the terminal
  *
- * @n: int type parameter
+ * @n: number of \ that should be printed
  *
- * Description: prints n number of underscores (_) in the terminal
+ * Description: prints \n if n is <= 0
+ * only use _putchar function to print
  *
  * Return: void
  */
 
-void print_line(int n)
+void print_diagonal(int n)
 {
 	if (n > 0)
 	{
 		int i;
 
-		i = 1;
-		while (i <= n)
+		i = 0;
+		while (i < n)
 		{
-			_putchar('_');
+			int j;
+
+			j = 0;
+			while (j < i)
+			{
+				_putchar(' ');
+				j++;
+			}
+			_putchar('\\');
 			i++;
+			if (i < n)
+			{
+				_putchar('\n');
+			}
 		}
 	}
 	_putchar('\n');
