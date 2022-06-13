@@ -7,7 +7,7 @@
  *
  * @n: pointer to the integer passed
  *
- * Return: Nothing
+ * Return: 0 always
  */
 
 void reset_to_98(int *n)
