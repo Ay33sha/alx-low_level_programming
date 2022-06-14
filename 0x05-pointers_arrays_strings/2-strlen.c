@@ -8,10 +8,9 @@
  * Description: return length of string s
  *
  * Return: number of characters in the string s
- *
  */
 
-int _strlen(char *s)	
+int _strlen(char *s)
 {
 	int count;
 
