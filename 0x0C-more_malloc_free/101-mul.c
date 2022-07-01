@@ -3,71 +3,67 @@
 #include <stdio.h>
 #include <ctype.h>
 
+int find_len(char *str);
+char *create_xarray(int size);
+char *iterate_zeroes(char *str);
+void get_prod(char *prod, char *mult, int digit, int zeroes);
+void add_nums(char *final_prod, char *next_prod, int next_len);
+
 /**
- * _is_zero - determines if any number is zero
+ * find_len - Finds the length of a string.
  *
- * @argv: argument vector.
+ * @str: The string to be measured.
  *
- * Return: no return.
+ * Return: The length of the string.
  */
 
-void _is_zero(char *argv[])
+int find_len(char *str)
 {
-	int i, isn1 = 1, isn2 = 1;
+	int len = 0;
 
-	for (i = 0; argv[1][i]; i++)
-		if (argv[1][i] != '0')
-		{
-			isn1 = 0;
-			break;
-		}
+	while (*str++)
+		len++;
 
-	for (i = 0; argv[2][i]; i++)
-		if (argv[2][i] != '0')
-		{
-			isn2 = 0;
-			break;
-		}
-
-	if (isn1 == 1 || isn2 == 1)
-	{
-		printf("0\n");
-		exit(0);
-	}
+	return (len);
 }
 
 /**
- * _initialize_array - set memery to zero in a new array
+ * create_xarray - Creates an array of chars and initializes it with
+ *the character 'x'. Adds a terminating null byte.
  *
- * @ar: char array.
- * @lar: length of the char array.
+ * @size: The size of the array to be initialized.
  *
- * Return: pointer of a char array.
+ * Description: If there is insufficient space, the
+ *function exits with a status of 98.
+ *
+ * Return: A pointer to the array.
  */
 
-int _checknum(char *argv[], int n)
+char *create_xarray(int size)
 {
-	int ln;
+	char *array;
+	int index;
 
-	for (ln = 0; argv[n][ln]; ln++)
-		if (!isdigit(argv[n][ln]))
-		{
-			printf("Error\n");
-			exit(98);
-		}
+	array = malloc(sizeof(char) * size);
 
-	return (ln);
+	if (array == NULL)
+		exit(98);
+
+	for (index = 0; index < (size - 1); index++)
+		array[index] = 'x';
+
+	array[index] = '\0';
+
+	return (array);
 }
 
 /**
- * main - Entry point.
+ * iterate_zeroes - Iterates through a string of numbers containing
+ *leading zeroes until it hits a non-zero number.
  *
- * program that multiplies two positive numbers.
+ * @str: The string of numbers to be iterate through.
  *
- * @argc: number of arguments.
- * @argv: arguments vector.
- *
- * Return: 0 - success.
+ * Return: A pointer to the next non-zero element.
  */
 
 int main(int argc, char *argv[])
