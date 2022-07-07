@@ -10,7 +10,6 @@
  * @op: The operator
  * @f: The function associated
  */
-
 typedef structop
 {
 		char *op;
